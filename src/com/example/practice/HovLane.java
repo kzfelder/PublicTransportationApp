@@ -6,43 +6,26 @@ import java.util.Random;
 public class HovLane
 {
     private Car front;
-    private HovLane next;
+    private HovLane next = null;
 
-    public HovLane(int numCars)
+    public HovLane(int size)
     {
-        //Car car = new Car();
-        //car.getRandomCar();
-        //System.out.println(car);
         front = Car.getRandomCar();
-        System.out.println("Front: " + front);
-        Car tempCar = Car.getRandomCar();
-        next = new HovLane(tempCar);
-        System.out.println("tempCar: " + next.front);
-
-        //next = null; // Initially the HovLane is empty
-
-        for (int i = 0; i < numCars - 2; i++)
+        if(size > 1)
         {
-            Car newCar = Car.getRandomCar();
-            //next = new HovLane(newCar);
-
-            next = next.prepend(newCar);
-            System.out.println("Car " + (i+2) + ": " + next.front);
-            System.out.println("Size: " + next.size());
+            this.next = new HovLane(size - 1);
         }
-        //System.out.println("Car: " + next.front);
-        System.out.println("Final Size: " + next.size());
     }
 
     public HovLane(Car car)
     {
         front = car;
-        next = new HovLane();
+        next = null;
     }
 
-    public HovLane prepend(Car car)
+    public HovLane prepend(Car c)
     {
-        HovLane hovCar = new HovLane(car);
+        HovLane hovCar = new HovLane(c);
         HovLane temp = this;
         hovCar.next = temp;
 
@@ -51,9 +34,7 @@ public class HovLane
 
     public HovLane ()
     {
-        Car car = Car.getRandomCar();
-        //System.out.println(car);
-        front = car;
+        front = Car.getRandomCar();;
         next = null;
     }
 
@@ -74,11 +55,7 @@ public class HovLane
     public int size()
     {
         HovLane temp = this;
-        int count = 0;
-        if (temp != null)
-        {
-            count++;
-        }
+        int count = 1;
         while (temp.next != null)
         {
             count++;
@@ -86,12 +63,4 @@ public class HovLane
         }
         return count;
     }
-//        HovLane head = new HovLane(front);
-//        String link = String.valueOf(head);
-//        while (head.next != null)
-//        {
-//            link = link + " --> \n" + head.next;
-//            head = head.next;
-//        }
-//        return link;
 }

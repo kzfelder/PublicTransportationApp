@@ -11,9 +11,9 @@ public class Main
         //System.out.println("\nCar: " + test);
 
         // Create HOV Lane
-        HovLane lane = new HovLane(3);
-        System.out.println("\nLane: " + lane);
-        System.out.println("Lane size: " + lane.size());
+        HovLane lane = new HovLane(10);
+        System.out.println("\nHOV Lane: \n" + lane);
+        System.out.println("\nLane size: " + lane.size());
 
     }
 }

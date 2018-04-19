@@ -16,9 +16,6 @@ public class Car
         this.passengers = passengers;
     }
 
-    public Car() {
-    }
-
     @Override
     public String toString() {
         return "(Car " + id + ": " + color + ", " + passengers + " passenger(s))--> ";
