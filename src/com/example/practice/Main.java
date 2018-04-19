@@ -7,12 +7,12 @@ public class Main
     public static void main(String[] args)
     {
         System.out.println("\nHello, PublicTransportationApp!\n");
-        Car car = new Car();
-        HovLane test = new HovLane(car);
-        System.out.println("Car: " + test);
+        //HovLane test = new HovLane();
+        //System.out.println("\nCar: " + test);
 
-        HovLane huh = new HovLane(3);
-        System.out.println("hov: " + huh);
+        // Create HOV Lane
+        HovLane lane = new HovLane(3);
+        System.out.println("\nLane: " + lane);
 
     }
 }

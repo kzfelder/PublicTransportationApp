@@ -10,24 +10,38 @@ public class HovLane
 
     public HovLane (int numCars)
     {
-        front.getRandomCar();
-        HovLane head = new HovLane(front.getRandomCar());
-        for (int i = 0; i < numCars; i++)
+        HovLane hovHead = new HovLane();
+        //System.out.println("\nhovHead: " + hovHead);
+        for (int i = 0; i < numCars - 1; i++)
         {
-            Car temp = new Car();
-            HovLane tempHov = new HovLane(temp.getRandomCar());
-            while (head.next.equals(null))
-            {
-                head.next = tempHov;
-            }
+
+            //int count = 0;
+            HovLane tempHov = new HovLane();
+            hovHead.prepend(tempHov);
+            hovHead = tempHov;
+
+            //System.out.println("\n1 tempHOV: " + tempHov);
+            //System.out.println("2 hovHead.next == null: " + (hovHead.next == null));
+            //System.out.println("3 hovhead.next: " + hovHead.next);
+
+//            while (hovHead.next != null)
+//            {
+//                //count++;
+//                //System.out.println("\n1 count: " + count);
+//                hovHead = hovHead.next;
+//                //System.out.println("2 hovHead: " + hovHead);
+//                //System.out.println("3 hovHead.next: " + hovHead.next);
+//            }
+//            hovHead.next = tempHov;
+            //System.out.println("1 hovHead.next: " + hovHead.next);
         }
-        System.out.println(front.toString());
     }
 
-    public HovLane (Car car)
+    public HovLane ()
     {
+        Car car = new Car();
         car.getRandomCar();
-        System.out.println(car);
+        //System.out.println(car);
         front = car;
         next = null;
     }
@@ -36,9 +50,27 @@ public class HovLane
     @Override
     public String toString()
     {
-        //while ()
-        return "HovLane{" +
-                "front=" + front +
-                '}';
+        String link = "";
+        HovLane temp = this;
+        while (temp != null) {
+            link = link + temp.front.toString();
+            temp = temp.next;
+        }
+        return link;
+    }
+//        HovLane head = new HovLane(front);
+//        String link = String.valueOf(head);
+//        while (head.next != null)
+//        {
+//            link = link + " --> \n" + head.next;
+//            head = head.next;
+//        }
+//        return link;
+
+
+    public void prepend(HovLane hovLink)
+    {
+        HovLane temp = this;
+        hovLink.next = temp;
     }
 }

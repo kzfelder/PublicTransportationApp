@@ -21,11 +21,7 @@ public class Car
 
     @Override
     public String toString() {
-        return "Car{" +
-                "id=" + id +
-                ", color='" + color + '\'' +
-                ", passengers=" + passengers +
-                '}';
+        return "(Car " + id + ": " + color + ", " + passengers + " passenger(s))--> ";
     }
 
     public Car getRandomCar()
