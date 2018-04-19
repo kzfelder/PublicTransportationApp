@@ -24,7 +24,7 @@ public class Car
         return "(Car " + id + ": " + color + ", " + passengers + " passenger(s))--> ";
     }
 
-    public Car getRandomCar()
+    public static Car getRandomCar()
     {
         Random rand = new Random();
         ArrayList<String> colors = new ArrayList<>();
@@ -37,13 +37,11 @@ public class Car
         colors.add("Green");
         colors.add("Yellow");
 
-        setId(rand.nextInt(899)+100);
-        setColor(colors.get(rand.nextInt(colors.size())));
-        setPassengers(rand.nextInt(6));
-//        this.id = rand.nextInt(10);
-//        this.color = colors.get(rand.nextInt(colors.size()));
-//        this.passengers = rand.nextInt(6);
-        return new Car(id,color,passengers);
+        int id = rand.nextInt(899)+100;
+        String color = colors.get(rand.nextInt(colors.size()));
+        int passenger = rand.nextInt(5)+1;
+
+        return new Car(id,color,passenger);
     }
 
     public int getId()

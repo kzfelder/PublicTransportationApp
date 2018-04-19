@@ -13,6 +13,7 @@ public class Main
         // Create HOV Lane
         HovLane lane = new HovLane(3);
         System.out.println("\nLane: " + lane);
+        System.out.println("Lane size: " + lane.size());
 
     }
 }
