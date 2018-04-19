@@ -9,10 +9,10 @@ public class Main
         System.out.println("\nHello, PublicTransportationApp!\n");
         Car car = new Car();
         HovLane test = new HovLane(car);
-        System.out.println(test);
+        System.out.println("Car: " + test);
 
         HovLane huh = new HovLane(3);
-        System.out.println(huh);
+        System.out.println("hov: " + huh);
 
     }
 }

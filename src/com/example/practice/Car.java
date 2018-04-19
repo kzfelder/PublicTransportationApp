@@ -41,8 +41,13 @@ public class Car
         colors.add("Green");
         colors.add("Yellow");
 
-        Car randCar = new Car(rand.nextInt(10), colors.get(rand.nextInt(colors.size())), rand.nextInt(6));
-        return randCar;
+        setId(rand.nextInt(899)+100);
+        setColor(colors.get(rand.nextInt(colors.size())));
+        setPassengers(rand.nextInt(6));
+//        this.id = rand.nextInt(10);
+//        this.color = colors.get(rand.nextInt(colors.size()));
+//        this.passengers = rand.nextInt(6);
+        return new Car(id,color,passengers);
     }
 
     public int getId()
